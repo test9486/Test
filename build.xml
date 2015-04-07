@@ -1,0 +1,25 @@
+ <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+
+  
+  <property file="build.properties"/>
+    
+<property environment="env"/>
+
+   
+   
+  <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
+  
+  <target name="retrieve">
+   
+<mkdir dir ="retrieveMetadata"/> 
+<sf:retrieve username="${sunny132@example.form}" password="${Salesfoce132}" serverurl="${www.na15.salesforce.com}"   retrieveTarget="retrieveMetadata" unpackaged ="retrievesource/package.xml"/>
+    
+ </target>
+  <!-- Upload the contents of the "mypkg" package -->
+  
+ <target name="deploy">
+   
+  <sf:deploy username="${sreekothu@example.form}" password="${Salesforce132}" serverurl="${www.na16.salesforce.com}" maxPoll="${sf.maxPoll}" deployRoot="retrieveMetadata" rollbackOnError="true"/>
+   
+  </target>  
+</project>
